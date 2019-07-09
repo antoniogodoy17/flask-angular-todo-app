@@ -1,0 +1,54 @@
+<div class="ui container">
+  <div class="title-header">
+    <h1 class="ui left floated header">Flask-Angular To-Do App</h1>
+    <a (click)=logout() class="ui right floated basic button">
+      <i class="icon user"></i>
+      Log Out
+    </a>
+  </div>
+
+  <h4 class="ui horizontal divider header">
+    <i class="plus square icon"></i>
+    Create or Update a Task
+  </h4>
+  <div class="ui very padded segment">
+    <form class="ui form" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label>Title</label>
+        <input type="text" formControlName="title" name="title" placeholder="Task Title">
+      </div>
+      <div class="field">
+        <label>Content</label>
+        <input type="text" formControlName="content" name="content" placeholder="Task Content">
+      </div>
+      <div class="field">
+        <label>Due Date</label>
+        <input type="date" formControlName="due_date" name="due_date" placeholder="mm/dd/yyyy">
+      </div>
+      <button class="ui button" type="submit">{{ editing ? 'Update Task' : 'Create Task' }}</button>
+    </form>
+  </div>
+
+  <h4 class="ui horizontal divider header">
+    <i class="tasks icon"></i>
+    To-Do's
+  </h4>
+  <div [hidden]="tasks?.length < 1" class="ui styled fluid accordion">
+    <div *ngFor="let task of tasks">
+      <div class="title">
+        <i class="dropdown icon"></i>
+        {{ task?.title }}
+      </div>
+      <div class="content">
+        <p class="transition hidden">{{ task?.content }}</p>
+        <p class="transition hidden">Due Date: {{ task?.due_date | date}}</p>
+        <div class="ui small basic icon buttons">
+          <button class="ui button" (click)="fillTask(task)"><i class="edit outline icon"></i></button>
+          <button class="ui button" (click)="deleteTask(task._id)"><i class="trash icon"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p [hidden]="tasks?.length > 0">You do not have any to-do.</p>
+</div>

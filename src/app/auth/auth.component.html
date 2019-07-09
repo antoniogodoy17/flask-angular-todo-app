@@ -1,0 +1,54 @@
+<div class="ui container">
+    <br>
+    <h1 class="ui horizontal divider header">Log In</h1>
+
+    <div class="ui very padded segment">
+      <form class="ui form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" formControlName="email" name="email" placeholder="Email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" formControlName="password" name="password" placeholder="Password">
+        </div>
+        <button class="ui button" type="submit">Log In</button>
+      </form>
+    </div>
+
+    <h1 class="ui horizontal divider header">Don't Have an Account? Sign Up Here</h1>
+    <div class="ui very padded segment">
+      <form class="ui form" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" formControlName="email" name="email" placeholder="Email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" formControlName="password" name="password" placeholder="Password">
+        </div>
+        <div class="field">
+          <label>Confirm Password</label>
+          <input type="password" formControlName="confirm_password" name="confirm_password" placeholder="Confirm Password">
+        </div>
+        <button class="ui button" type="submit">Sign Up</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="ui basic modal">
+    <div class="ui icon header">
+      <i class="archive icon"></i>
+      Account Created!
+    </div>
+    <div class="content">
+      <p>Your account has been created successfully, now you can log in and get started!</p>
+    </div>
+    <div class="actions">
+      <div class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        Cool!
+      </div>
+    </div>
+  </div>

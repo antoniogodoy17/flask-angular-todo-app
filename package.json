@@ -19,7 +19,11 @@
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
+    "@auth0/angular-jwt": "^2.1.1",
+    "@types/jquery": "^3.3.29",
+    "jquery": "^3.4.1",
     "rxjs": "~6.4.0",
+    "semantic-ui-css": "^2.4.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
